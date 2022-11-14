@@ -32,9 +32,9 @@ fun main() {
     val a = 3
     val b = 2
 
-    val max = if (a>b) a else b
+    val max = if (a > b) a else b
 
-    if ( a < b ) {
+    if (a < b) {
         println("a es menor que b")
     } else {
         println("a es mayor que b")
@@ -47,26 +47,37 @@ fun main() {
     var listaDeColores = mutableListOf("Azul", "Verdes", "Negro")  //Lista Mutable
     var listInmutable = listOf<String>("Auto", "Moto", "Bicicleta") // ListaInMutable
 
-    for (nombre in listaDeColores){
+    for (nombre in listaDeColores) {
         println(nombre)
     }
 
     //Lista con indice
-    for ((index, value) in listaDeColores.withIndex()){
+    for ((index, value) in listaDeColores.withIndex()) {
         println("Nombre: $value con indice: $index")
     }
 
-    listInmutable.forEach{ elemento ->
-     println(elemento)
+    listInmutable.forEach { elemento ->
+        println(elemento)
     }
 
-    listInmutable.forEachIndexed(){ index, elemento ->
-        println("Elemento: $elemento con indice: $index" )
+    listInmutable.forEachIndexed() { index, elemento ->
+        println("Elemento: $elemento con indice: $index")
+    }
+
+    val x = 4
+    when (x) {
+        1 -> {
+            println("X es 1")
+        }
+        2 -> {
+            println("X es 2")
+        }
+        else ->  println("X es diferente a 1 y 2")
     }
 
 }
 
-class Persona(var nombre: String ="", var apellido: String = "") {
+class Persona(var nombre: String = "", var apellido: String = "") {
     fun darBienvenida() {
         println("Bienvenido $nombre, $apellido")
     }
@@ -90,7 +101,7 @@ enum class DIAS(val numero: Int) {
     DOMINGO(6)
 }
 
-fun esPar(numero:Int) : Boolean {
+fun esPar(numero: Int): Boolean {
     return numero % 2 == 0
 }
 
