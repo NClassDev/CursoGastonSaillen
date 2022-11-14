@@ -113,6 +113,9 @@ fun main() {
     println(nombre2?.length)
     println(c)
 
+    //11 Genericos
+
+    Elemento(Perro("Garras", "Dalmata"), Persona("Miriam"))
 }
 
 class Persona(var nombre: String = "", var apellido: String = "") {
@@ -120,7 +123,6 @@ class Persona(var nombre: String = "", var apellido: String = "") {
         println("Bienvenido $nombre, $apellido")
     }
 }
-
 data class Perro(var nombre: String, var raza: String)
 
 class Constantes {
@@ -145,3 +147,9 @@ fun esPar(numero: Int): Boolean {
 
 fun String.removerPrimerCaracter(): String = this.substring(1)
 
+class Elemento<T, R>(value: T, value2: R) {
+    init {
+        if(value == null ) throw java.lang.IllegalArgumentException("Se inicio elemnto  vacio")
+        println("El valor es $value y $value2")
+    }
+}
