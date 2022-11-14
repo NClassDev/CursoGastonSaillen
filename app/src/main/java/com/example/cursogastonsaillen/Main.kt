@@ -19,8 +19,11 @@ fun main() {
     println("Son iguales: ${milanezo == milanezoHermano}")
 
     // Constantes
-
     println(Constantes.direccion)
+
+    //Enum Classes
+    val dia = DIAS.JUEVES.numero
+    println(dia)
 }
 
 class Persona(var nombre: String ="", var apellido: String = "") {
@@ -35,4 +38,14 @@ class Constantes {
     companion object {
         const val direccion = "Calle Independencia #35, Colonia Montañas"
     }
+}
+
+enum class DIAS(val numero: Int) {
+    LUNES(0),
+    MARTES(1),
+    MIERCOLES(2),
+    JUEVES(3),
+    VIERNES(4),
+    SABADO(5),
+    DOMINGO(6)
 }
