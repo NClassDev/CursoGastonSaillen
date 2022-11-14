@@ -64,6 +64,7 @@ fun main() {
         println("Elemento: $elemento con indice: $index")
     }
 
+    // When
     val x = 4
     when (x) {
         1 -> {
@@ -74,6 +75,22 @@ fun main() {
         }
         else ->  println("X es diferente a 1 y 2")
     }
+
+    //08 Control Flow While y Do While
+//    var i = 1
+//    while (i <= 5) {
+//        println("Valor $i")
+//        i++
+//    }
+//
+//    var sum = 0
+//    var input: String
+//    do {
+//        println("Ingresa un numero:")
+//        input = readLine()!!
+//        sum += input.toInt()
+//    } while (input != "0")
+//    println("La suma acumulada es : $sum")
 
 }
 
