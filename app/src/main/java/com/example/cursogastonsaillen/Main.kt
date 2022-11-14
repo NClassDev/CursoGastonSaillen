@@ -8,6 +8,7 @@ fun main() {
     persona2.apellido = "Gonzales"
     persona2.darBienvenida()
 
+    // Data Class
     val dolly: Perro = Perro("Dolly", "Chihuahua")
     val cony: Perro = Perro("Cony", "San Bernardo")
     val milanezo: Perro = cony.copy(nombre = "Milaneso")
@@ -17,6 +18,9 @@ fun main() {
     println("Son iguales: ${milanezo == cony}")
     println("Son iguales: ${milanezo == milanezoHermano}")
 
+    // Constantes
+
+    println(Constantes.direccion)
 }
 
 class Persona(var nombre: String ="", var apellido: String = "") {
@@ -26,3 +30,9 @@ class Persona(var nombre: String ="", var apellido: String = "") {
 }
 
 data class Perro(var nombre: String, var raza: String)
+
+class Constantes {
+    companion object {
+        const val direccion = "Calle Independencia #35, Colonia Montañas"
+    }
+}
