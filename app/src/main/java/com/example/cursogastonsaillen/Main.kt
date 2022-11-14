@@ -24,6 +24,9 @@ fun main() {
     //Enum Classes
     val dia = DIAS.JUEVES.numero
     println(dia)
+
+    //Metodos
+    println(esPar(2))
 }
 
 class Persona(var nombre: String ="", var apellido: String = "") {
@@ -48,4 +51,8 @@ enum class DIAS(val numero: Int) {
     VIERNES(4),
     SABADO(5),
     DOMINGO(6)
+}
+
+fun esPar(numero:Int) : Boolean {
+    return numero % 2 == 0
 }
