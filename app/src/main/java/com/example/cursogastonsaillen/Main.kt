@@ -96,6 +96,23 @@ fun main() {
     val nombre: String = "Lucia"
     println("Remover primer Caracter : ${nombre.removerPrimerCaracter()}")
 
+    // Nulabilidad
+    val nombre2: String? = null
+    val nombre3: String? = "Lucia"
+    val c = nombre2?.length ?: "Leo".length
+    nombre2?.let {
+        println(it)
+    }
+
+    c.let {
+        println("Entrando a Let $it")
+    }
+
+    // !!  Indica que por nosotros mismos que esta variable no es nula, no debe implementarse
+    // println(nombre2!!) //  Esta linea crashea
+    println(nombre2?.length)
+    println(c)
+
 }
 
 class Persona(var nombre: String = "", var apellido: String = "") {
