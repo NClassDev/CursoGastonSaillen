@@ -27,6 +27,25 @@ fun main() {
 
     //Metodos
     println(esPar(2))
+
+    //IF ELSE
+    val a = 3
+    val b = 2
+
+    val max = if (a>b) a else b
+
+    if ( a < b ) {
+        println("a es menor que b")
+    } else {
+        println("a es mayor que b")
+    }
+
+    println("$max")
+
+
+
+
+
 }
 
 class Persona(var nombre: String ="", var apellido: String = "") {
