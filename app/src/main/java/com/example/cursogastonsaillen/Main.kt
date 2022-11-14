@@ -92,6 +92,10 @@ fun main() {
 //    } while (input != "0")
 //    println("La suma acumulada es : $sum")
 
+    // 09 Extension Functions
+    val nombre: String = "Lucia"
+    println("Remover primer Caracter : ${nombre.removerPrimerCaracter()}")
+
 }
 
 class Persona(var nombre: String = "", var apellido: String = "") {
@@ -121,4 +125,6 @@ enum class DIAS(val numero: Int) {
 fun esPar(numero: Int): Boolean {
     return numero % 2 == 0
 }
+
+fun String.removerPrimerCaracter(): String = this.substring(1)
 
