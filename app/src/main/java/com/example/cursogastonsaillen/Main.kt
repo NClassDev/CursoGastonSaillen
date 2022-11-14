@@ -43,8 +43,26 @@ fun main() {
     println("$max")
 
 
+    // Listas
+    var listaDeColores = mutableListOf("Azul", "Verdes", "Negro")  //Lista Mutable
+    var listInmutable = listOf<String>("Auto", "Moto", "Bicicleta") // ListaInMutable
 
+    for (nombre in listaDeColores){
+        println(nombre)
+    }
 
+    //Lista con indice
+    for ((index, value) in listaDeColores.withIndex()){
+        println("Nombre: $value con indice: $index")
+    }
+
+    listInmutable.forEach{ elemento ->
+     println(elemento)
+    }
+
+    listInmutable.forEachIndexed(){ index, elemento ->
+        println("Elemento: $elemento con indice: $index" )
+    }
 
 }
 
@@ -75,3 +93,4 @@ enum class DIAS(val numero: Int) {
 fun esPar(numero:Int) : Boolean {
     return numero % 2 == 0
 }
+
