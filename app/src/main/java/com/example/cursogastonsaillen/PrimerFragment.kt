@@ -17,7 +17,7 @@ class PrimerFragment : Fragment(R.layout.fragment_primer) {
         button.setOnClickListener {
             requireActivity().supportFragmentManager.commit {
                 //add(R.id.fragment_container_view, SegundoFragment()) // Agrega el fragment por encima
-                replace(R.id.fragment_container_view, SegundoFragment()) // remplaza el fragment actual por el convocado
+                replace(R.id.fragment_container_view, SegundoFragment.newInstance("Javier", 33)) // remplaza el fragment actual por el convocado
                 addToBackStack("primerFragment")
             }
         }
