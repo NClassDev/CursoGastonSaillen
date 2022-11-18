@@ -15,7 +15,8 @@ class PrimerFragment : Fragment(R.layout.fragment_primer) {
         super.onViewCreated(view, savedInstanceState)
         val button = view.findViewById<Button>(R.id.btn_primer_fragment_navegar)
         button.setOnClickListener {
-            findNavController().navigate(R.id.action_primerFragment_to_segundoFragment, bundleOf("nombre" to "Ana", "edad" to 25))
+            val action = PrimerFragmentDirections.actionPrimerFragmentToSegundoFragment("Ana", 25)
+            findNavController().navigate(action)
         }
     }
 
