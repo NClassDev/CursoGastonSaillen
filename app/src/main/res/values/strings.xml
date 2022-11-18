@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CursoGastonSaillen</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_primer_fragmnet">Primer fragment</string>
+    <string name="msg_segundo_fragmenr">Segundo fragment</string>
 </resources>
