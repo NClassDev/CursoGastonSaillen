@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="msg_primer_fragment">Primer fragment</string>
     <string name="msg_segundo_fragment">Segundo fragment</string>
+    <string name="msg_productos_fragment">Productos fragment</string>
+    <string name="msg_tienda_fragment">Tienda fragment</string>
 </resources>
