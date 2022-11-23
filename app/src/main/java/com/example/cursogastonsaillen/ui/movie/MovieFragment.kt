@@ -1,10 +1,9 @@
-package com.example.cursogastonsaillen
+package com.example.cursogastonsaillen.ui.movie
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import com.example.cursogastonsaillen.R
 
 class MovieFragment : Fragment(R.layout.fragment_movie) {
 

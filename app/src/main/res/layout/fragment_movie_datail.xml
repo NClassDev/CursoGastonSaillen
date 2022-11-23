@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MovieDatailFragment">
+    tools:context=".ui.moviedetails.MovieDatailFragment">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -87,7 +87,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:drawableStart="@drawable/ic_calendar"
-        android:drawableRight="8dp"
         android:drawablePadding="8dp"
         android:drawableTint="@color/white"
         android:gravity="center"
@@ -103,7 +102,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:drawableStart="@drawable/ic_language"
-        android:drawableRight="8dp"
         android:drawablePadding="8dp"
         android:drawableTint="@color/white"
         android:gravity="center"
