@@ -18,5 +18,24 @@
         android:id="@+id/movieDatailFragment"
         android:name="com.example.cursogastonsaillen.ui.moviedetails.MovieDatailFragment"
         android:label="fragment_movie_datail"
-        tools:layout="@layout/fragment_movie_datail" />
+        tools:layout="@layout/fragment_movie_datail" >
+        <argument
+            android:name="posterImageUrl"
+            app:argType="string" />
+        <argument
+            android:name="voteAverage" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument android:name="backgroundImageUrl" />
+        <argument
+            android:name="languaje"
+            app:argType="string" />
+        <argument
+            android:name="overview"
+            app:argType="string" />
+        <argument
+            android:name="releaseDate"
+            app:argType="string" />
+    </fragment>
 </navigation>

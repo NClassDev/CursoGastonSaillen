@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.example.cursogastonsaillen.R
 import com.example.cursogastonsaillen.core.Resource
@@ -50,9 +51,33 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                 is Resource.Success -> {
                     binding.progressVar.visibility = View.VISIBLE
                     concatAdapter.apply {
-                        addAdapter(0, UpcomingConcatAdapter(MovieAdapter(result.data.first.results, this@MovieFragment)))
-                        addAdapter(0, TopRatedConcatAdapter(MovieAdapter(result.data.second.results, this@MovieFragment)))
-                        addAdapter(0, PopularConcatAdapter(MovieAdapter(result.data.third.results, this@MovieFragment)))
+                        addAdapter(
+                            0,
+                            UpcomingConcatAdapter(
+                                MovieAdapter(
+                                    result.data.first.results,
+                                    this@MovieFragment
+                                )
+                            )
+                        )
+                        addAdapter(
+                            0,
+                            TopRatedConcatAdapter(
+                                MovieAdapter(
+                                    result.data.second.results,
+                                    this@MovieFragment
+                                )
+                            )
+                        )
+                        addAdapter(
+                            0,
+                            PopularConcatAdapter(
+                                MovieAdapter(
+                                    result.data.third.results,
+                                    this@MovieFragment
+                                )
+                            )
+                        )
                     }
 
 
@@ -67,7 +92,16 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
     }
 
     override fun onMovieClick(movie: Movie) {
-        Log.d("Movie", "onMovieClick: $movie")
+        val action = MovieFragmentDirections.actionMovieFragmentToMovieDatailFragment(
+            movie.poster_path,
+            movie.vote_average.toFloat().toString(),
+            movie.title,
+            movie.backdrop_path,
+            movie.original_language,
+            movie.overview,
+            movie.release_date
+        )
+        findNavController().navigate(action)
     }
 
 }
