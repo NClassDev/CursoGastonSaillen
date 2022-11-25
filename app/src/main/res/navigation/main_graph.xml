@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_movieFragment_to_movieDatailFragment"
             app:destination="@id/movieDatailFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDatailFragment"
@@ -38,4 +41,9 @@
             android:name="releaseDate"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.cursogastonsaillen.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -15,6 +16,7 @@ import com.example.cursogastonsaillen.data.remote.MovieDataSource
 import com.example.cursogastonsaillen.databinding.FragmentMovieBinding
 import com.example.cursogastonsaillen.presentation.MovieViewModel
 import com.example.cursogastonsaillen.presentation.MovieViewModelFactory
+import com.example.cursogastonsaillen.presentation.ProfileViewModel
 import com.example.cursogastonsaillen.repository.MovieRepositoryImpl
 import com.example.cursogastonsaillen.repository.RetrofitClient
 import com.example.cursogastonsaillen.ui.movie.adapters.MovieAdapter
@@ -26,15 +28,14 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
 
     private lateinit var binding: FragmentMovieBinding
 
+     // ViewModel with manual dependency injection
     private val viewModel by viewModels<MovieViewModel> {
         MovieViewModelFactory(MovieRepositoryImpl(MovieDataSource(RetrofitClient.webservice)))
     }
 
-    private lateinit var concatAdapter: ConcatAdapter
+    private val profileViewModel : ProfileViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var concatAdapter: ConcatAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -79,8 +80,6 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                             )
                         )
                     }
-
-
                     binding.rvMovies.adapter = concatAdapter
                 }
                 is Resource.Failure -> {
@@ -88,6 +87,21 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
                 }
             }
         })
+
+        // Setting a LiveData using navigationComponents
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>("movie")?.observe(
+            viewLifecycleOwner) {
+            Log.d("MovieFragment", it)
+        }
+
+        binding.apply {
+            floatingBtnViewProfile.visibility = if(profileViewModel.getCurrentMovie().value != "") View.VISIBLE else View.GONE
+
+            floatingBtnViewProfile.setOnClickListener {
+                val action = MovieFragmentDirections.actionMovieFragmentToProfileFragment()
+                findNavController().navigate(action)
+            }
+        }
 
     }
 
@@ -101,6 +115,9 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MovieAdapter.OnMovieCli
             movie.overview,
             movie.release_date
         )
+
+        profileViewModel.setCurrentMovie(movie.title)
+
         findNavController().navigate(action)
     }
 

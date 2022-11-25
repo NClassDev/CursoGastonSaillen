@@ -1,42 +1,13 @@
 package com.example.cursogastonsaillen.presentation
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.liveData
+import androidx.lifecycle.*
 import com.example.cursogastonsaillen.core.Resource
 import com.example.cursogastonsaillen.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
 
 class MovieViewModel(private val repo: MovieRepository) : ViewModel() {
 
-    fun fetchUpcomingMovies() = liveData(Dispatchers.IO) {
-        emit(Resource.Loading())
-        try {
-            emit(Resource.Success(repo.getUpcomingMovies()))
-        } catch (e: Exception) {
-            emit(Resource.Failure(e))
-        }
-    }
-
-    fun fetchTopRatedMovies() = liveData(Dispatchers.IO) {
-        emit(Resource.Loading())
-        try {
-            emit(Resource.Success(repo.getTopRateMovies()))
-        } catch (e: Exception) {
-            emit(Resource.Failure(e))
-        }
-    }
-
-    fun fetchPopularMovies() = liveData(Dispatchers.IO) {
-        emit(Resource.Loading())
-        try {
-            emit(Resource.Success(repo.getPopularMovies()))
-        } catch (e: Exception) {
-            emit(Resource.Failure(e))
-        }
-    }
-
-    fun fetchMainScreenMovies() = liveData(Dispatchers.IO) {
+    fun fetchMainScreenMovies() = liveData(viewModelScope.coroutineContext + Dispatchers.Main) {
         emit(Resource.Loading())
         try {
             emit(Resource.Success(Triple(repo.getPopularMovies(), repo.getTopRateMovies(), repo.getUpcomingMovies())))
