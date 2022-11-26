@@ -3,32 +3,47 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/primerFragment">
+    app:startDestination="@id/movieFragment">
 
     <fragment
-        android:id="@+id/primerFragment"
-        android:name="com.example.cursogastonsaillen.PrimerFragment"
-        android:label="fragment_primer"
-        tools:layout="@layout/fragment_primer" >
+        android:id="@+id/movieFragment"
+        android:name="com.example.cursogastonsaillen.ui.movie.MovieFragment"
+        android:label="fragment_movie"
+        tools:layout="@layout/fragment_movie" >
         <action
-            android:id="@+id/action_primerFragment_to_segundoFragment"
-            app:destination="@id/segundoFragment"
-            app:enterAnim="@anim/slide_in_left" />
+            android:id="@+id/action_movieFragment_to_movieDatailFragment"
+            app:destination="@id/movieDatailFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
-        android:id="@+id/segundoFragment"
-        android:name="com.example.cursogastonsaillen.SegundoFragment"
-        android:label="fragment_segundo"
-        tools:layout="@layout/fragment_segundo" >
+        android:id="@+id/movieDatailFragment"
+        android:name="com.example.cursogastonsaillen.ui.moviedetails.MovieDatailFragment"
+        android:label="fragment_movie_datail"
+        tools:layout="@layout/fragment_movie_datail" >
         <argument
-            android:name="nombre"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="NO_NAME" />
+            android:name="posterImageUrl"
+            app:argType="string" />
         <argument
-            android:name="edad"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:name="voteAverage" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument android:name="backgroundImageUrl" />
+        <argument
+            android:name="languaje"
+            app:argType="string" />
+        <argument
+            android:name="overview"
+            app:argType="string" />
+        <argument
+            android:name="releaseDate"
+            app:argType="string" />
     </fragment>
-    <include app:graph="@navigation/product_graph" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.cursogastonsaillen.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
